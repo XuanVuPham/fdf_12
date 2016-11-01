@@ -8,6 +8,8 @@ class Order < ApplicationRecord
   has_many :order_products, dependent: :destroy
   has_many :products, through: :order_products
   has_many :events , as: :eventable
+  has_many :by_product_orders, -> user {where user: user},
+    class_name: OrderProduct.name
 
   enum status: {pending: 0, accepted: 1, rejected: 2, done: 3}
   delegate :name, to: :shop, prefix: :shop
@@ -93,7 +95,7 @@ class Order < ApplicationRecord
   end
 
   def total_pay_user user
-    order_products.by_user(user)
+    by_product_orders(user)
       .inject(0){|sum, item| sum + item.total_price}
   end
 

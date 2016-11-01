@@ -4,7 +4,7 @@
       <button class="list btn btn-primary btn-action btnPrev tab1" id="tab-2" href="#tab1" data-toggle="tab">
         <%= t "order_statistics.back"%>
       </button>
-      <% if @products.length > 0 %>
+      <% if @products.any? %>
         <%= link_to t("order_statistics.done"), dashboard_shop_order_products_path(@products.first.shop),
          class: "list btn btn-success btn-action pull-right" %>
       <% end %>
