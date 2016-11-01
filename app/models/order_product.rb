@@ -14,7 +14,8 @@ class OrderProduct < ApplicationRecord
     product.price * quantity
   end
 
-  scope :by_user, -> user {where user: user}
+  scope :by_accepted, ->{where status: 1}
+  scope :by_user, ->user {where user: user}
   scope :group_product, -> do
     joins(:product)
       .select("order_products.product_id, sum(order_products.quantity) as total")

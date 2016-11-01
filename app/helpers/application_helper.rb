@@ -36,4 +36,8 @@ module ApplicationHelper
       end
     end
   end
+
+  def total_price price, quantity
+    price * quantity
+  end
 end

@@ -294,6 +294,12 @@ en:
         empty_list: "You don't have any product! Let's add new product now!"
         new_button: "Add new product"
         delete: "Detete"
+      show:
+        name: "Name"
+        quantity: "Quantity"
+        price: "Price"
+        total: "Total"
+        product_name: "Product: "
     shops:
       show:
         edit: "Edit shop"

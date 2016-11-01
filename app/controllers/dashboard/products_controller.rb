@@ -1,7 +1,7 @@
 class Dashboard::ProductsController < BaseDashboardController
   before_action :load_shop
   before_action :load_categories, only: [:edit, :new, :update]
-  before_action :load_product, only: [:edit, :update, :destroy]
+  before_action :load_product, axcep: [:index, :new, :create]
   before_action :load_products, only: :index
 
   def new
@@ -10,6 +10,10 @@ class Dashboard::ProductsController < BaseDashboardController
 
   def index
     @products.page(params[:page]).per Settings.common.products_per_page
+  end
+
+  def show
+    @order_products = @product.order_products
   end
 
   def edit
