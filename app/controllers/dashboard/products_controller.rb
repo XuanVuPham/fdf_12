@@ -1,7 +1,7 @@
 class Dashboard::ProductsController < BaseDashboardController
   before_action :load_shop
   before_action :load_categories, only: [:edit, :new, :update]
-  before_action :load_product, axcep: [:index, :new, :create]
+  before_action :load_product, except: [:index, :new, :create]
   before_action :load_products, only: :index
 
   def new

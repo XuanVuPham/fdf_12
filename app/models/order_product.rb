@@ -14,7 +14,7 @@ class OrderProduct < ApplicationRecord
     product.price * quantity
   end
 
-  scope :by_accepted, ->{where status: 1}
+  scope :by_accepted, ->{where status: :accepted}
   scope :by_user, ->user {where user: user}
   scope :group_product, -> do
     joins(:product)
