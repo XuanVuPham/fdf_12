@@ -1,6 +1,14 @@
 class Dashboard::OrderProductsController < BaseDashboardController
   before_action :load_order_item, only: :update
 
+  def index
+    @order_products = OrderProduct.by_accepted
+    if OrderProduct.by_accepted.update_all status: 3
+      respond_to do |format|
+        format.html { redirect_to dashboard_shop_orders_managments_path}
+      end
+    end
+  end
   def update
     if @order_product.update_attributes order_product_params
       OrderMailer.shop_confirmation(@order_product).deliver_later
