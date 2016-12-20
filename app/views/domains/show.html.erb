@@ -2,9 +2,7 @@
   <div class="col-sm-3">
     <div class="block-item-list block padding-0">
       <h3 class="title padding-left-10">
-        <span>
-          <%= t "common.categories" %>
-        </span>
+        <span><%= t "common.categories" %></span>
       </h3>
       <div class="clearfix body">
         <div class="category-list padding-top-0">
@@ -124,13 +122,8 @@
     <%= render @shops %>
   </div>
   <div class="btn_view_all_wrapper pull-center">
-    <% if @domain.present? %>
-      <%= link_to t("common.btn_view_all"), shops_path(domain_id: @domain.id),
-        class: "btn btn_view_all btn-warning top_shop" %>
-    <% else %>
-      <%= link_to t("common.btn_view_all"), shops_path,
-        class: "btn btn_view_all btn-warning top_shop" %>
-    <% end %>
+    <%= link_to t("common.btn_view_all"), shops_path(domain_id: @domain.id),
+      class: "btn btn_view_all btn-warning top_shop" %>
     </div>
 </div>
 
@@ -145,12 +138,7 @@
     <%= render @products %>
   </div>
   <div class="btn_view_all_wrapper pull-center">
-    <% if @domain.present? %>
-      <%= link_to t("common.btn_view_all"), products_path(domain_id: @domain.id),
-        class: "btn btn_view_all btn-warning top_shop" %>
-    <% else %>
-      <%= link_to t("common.btn_view_all"), products_path,
-        class: "btn btn_view_all btn-warning top_shop" %>
-    <% end %>
+    <%= link_to t("common.btn_view_all"), products_path(domain_id: @domain.id),
+      class: "btn btn_view_all btn-warning top_shop" %>
   </div>
 </div>

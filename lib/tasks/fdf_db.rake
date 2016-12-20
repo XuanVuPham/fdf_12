@@ -1,5 +1,5 @@
 namespace :fdf_db do
-  task create_all: [:create_user, :create_admin, :create_shop, :create_category,
+  task create_all: [:create_user, :create_domain, :create_admin, :create_shop, :create_category,
    :create_shop_manager, :create_coupon, :create_product] do
   end
   task create_user: :environment do
@@ -29,6 +29,24 @@ namespace :fdf_db do
       email: "pham.van.chien@framgia.com",
       password: "123456",
       password_confirmation: "123456"
+    )
+  end
+
+  task create_domain: :environment do
+    Domain.create!(
+      name: "Hà Nội",
+      subdomain: "hn"
+    )
+
+    Domain.create!(
+      name: "Đà Nẵng",
+      subdomain: "dn"
+    )
+
+
+    Domain.create!(
+      name: "Hồ Chí Minh",
+      subdomain: "hcm"
     )
   end
 

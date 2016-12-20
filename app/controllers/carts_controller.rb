@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   before_action :load_product, only: :update
   before_action :check_before_order, only: [:new, :index]
   before_action :check_user_status_for_action, except: [:update, :index]
+  before_action :load_domain
 
   def index
     if @cart.blank?

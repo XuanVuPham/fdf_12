@@ -2,8 +2,14 @@ class ShopsController < ApplicationController
   before_action :load_shop, only: [:show, :update]
 
   def index
-    @shops = Shop.active.page(params[:page])
-      .per(Settings.common.per_page).decorate
+    if user_signed_in? && params[:domain_id].present?
+      @domain = Domain.find_by id: params[:domain_id]
+      @shops = @domain.shops.active.page(params[:page])
+        .per(Settings.common.per_page).decorate
+    else
+      @shops = Shop.active.page(params[:page])
+        .per(Settings.common.per_page).decorate
+    end
   end
 
   def show

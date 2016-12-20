@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+  has_many :users, through: :products
   acts_as_paranoid
 
   extend FriendlyId

@@ -3,6 +3,7 @@ class Admin::UsersController < AdminController
   before_action :load_user, only: [:update, :destroy]
 
   def index
+    @domains = Domain.all
     @users = User.all.page(params[:page]).per Settings.common.per_page
       respond_to do |format|
       format.html

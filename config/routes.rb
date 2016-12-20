@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'domains/show'
+
+  namespace :admin do
+    get 'domains/destroy'
+  end
+
   get "set_language/update"
   post "/rate" => "rater#create", :as => "rate"
   devise_for :admins, path: "admin",
@@ -17,6 +23,7 @@ Rails.application.routes.draw do
     resources :products, only: :index
     resources :set_user, only: :create
     resources :shops, except: [:new, :create, :show]
+    resources :user_domains, only: [:new, :destroy]
   end
 
   namespace :dashboard do
@@ -32,6 +39,8 @@ Rails.application.routes.draw do
     resources :statistics
   end
 
+  resources :domains, only: :show
+  match "/", to: "static_pages#home", constraints: { subdomain: "www" }, via: [:get, :post, :put, :patch, :delete]
   resources :shops, only: [:index, :show, :update]
   resources :products, only: [:index, :show, :new] do
     resources :comments, only: :create

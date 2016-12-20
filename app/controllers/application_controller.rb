@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :create_cart
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_events
+  # before_filter :get_domain
 
   protected
   def configure_permitted_parameters
@@ -18,7 +19,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   private
+    def get_domain
+      if @domain.present?
+        redirect_to root_url(subdomain: Domain.first.subdomain)
+      end
+    end
+
   def create_cart
     @cart = Cart.build_from_hash session[:cart]
     @cart_group = @cart.items.group_by(&:shop_id).map  do |q|
@@ -69,5 +77,9 @@ class ApplicationController < ActionController::Base
       flash[:danger] = t "information"
       redirect_to root_path
     end
+  end
+
+  def load_domain
+    @domain = Domain.find_by id: params[:domain_id]
   end
 end
