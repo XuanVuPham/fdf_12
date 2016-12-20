@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111074859) do
+ActiveRecord::Schema.define(version: 20161219102152) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -95,6 +95,12 @@ ActiveRecord::Schema.define(version: 20161111074859) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  end
+
+  create_table "domains", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -283,6 +289,15 @@ ActiveRecord::Schema.define(version: 20161111074859) do
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
 
+  create_table "user_domains", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "domain_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["domain_id"], name: "index_user_domains_on_domain_id", using: :btree
+    t.index ["user_id"], name: "index_user_domains_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "avatar"
@@ -329,4 +344,6 @@ ActiveRecord::Schema.define(version: 20161111074859) do
   add_foreign_key "reviews", "users"
   add_foreign_key "shop_managers", "shops"
   add_foreign_key "shop_managers", "users"
+  add_foreign_key "user_domains", "domains"
+  add_foreign_key "user_domains", "users"
 end

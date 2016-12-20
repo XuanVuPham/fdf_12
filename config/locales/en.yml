@@ -5,6 +5,7 @@ en:
       short_time: "%H:%M"
       date_format: "MM/DD/YYYY"
   split: " -"
+  choose_domain: "Choose domain"
   shop_owner: "Shop owner: "
   change_shop_owner: "Change the shop owner"
   enter_email: "Enter the new shop owner email"

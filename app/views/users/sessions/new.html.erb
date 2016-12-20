@@ -17,6 +17,11 @@
           <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
         </div>
 
+        <div class="field">
+          <%= select_tag :domain_id,
+            options_from_collection_for_select(Domain.all, "id", "name") %>
+        </div>
+
         <% if devise_mapping.rememberable? -%>
           <div class="field">
             <%= f.check_box :remember_me %>

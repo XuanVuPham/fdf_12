@@ -5,6 +5,7 @@ jp:
       short_time: "%H:%M"
       date_format: "MM/DD/YYYY"
   split: " -"
+  choose_domain: "Choose domain"
   shop_owner: "店主: "
   change_shop_owner: "店の所有者を変更"
   enter_email: "新しいお店の所有者は、自分のメールアドレスを入力しください"

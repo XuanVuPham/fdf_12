@@ -1,6 +1,5 @@
-class StaticPagesController < ApplicationController
-
-  def home
+class DomainsController < ApplicationController
+  def index
     @shops = []
     @products = []
     if user_signed_in?

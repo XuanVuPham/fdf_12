@@ -41,6 +41,7 @@ vi:
       short_time: "%H:%M"
       date_format: "MM/DD/YYYY"
   split: " -"
+  choose_domain: "Choose domain"
   shop_owner: "Chủ cửa hàng: "
   change_shop_owner: "Thay đổi người quản lí"
   enter_email: "Nhập email của chủ cửa hàng mới"

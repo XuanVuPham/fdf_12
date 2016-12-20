@@ -28,6 +28,8 @@
             <th><%= t ".description" %></th>
             <th><%= t ".status" %></th>
             <th><%= t ".actions" %></th>
+            <th><%= "Domain" %></th>
+            <th><%= t "choose_domain" %></th>
           </tr>
         </thead>
         <tbody>
@@ -56,6 +58,25 @@
                 <% else %>
                   <%= link_to t(".wait"), admin_user_path(user.id, status: "wait"), method: :put,
                     class: "btn btn-danger btn_block" %>
+                <% end %>
+              </td>
+              <td>
+                <ul>
+                  <% user.domains.each do |domain| %>
+                    <li>
+                      <%= domain.name %>
+                      <% user_domain = UserDomain.by_domain user.id, domain.id %>
+                      <%= link_to "x", admin_user_domain_path(user_domain.ids.first), method: :delete %>
+                    </li>
+                  <% end %>
+                </ul>
+              </td>
+              <td>
+                <%= form_tag new_admin_user_domain_path(), method: :get do %>
+                  <%= hidden_field_tag :user_id, user.id %>
+                  <%= select_tag :domain_id,
+                    options_from_collection_for_select(@domains, "id", "name"),
+                    onchange: "this.form.submit();" %>
                 <% end %>
               </td>
             </tr>
