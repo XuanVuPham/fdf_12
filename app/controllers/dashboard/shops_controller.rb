@@ -2,6 +2,12 @@ class Dashboard::ShopsController < BaseDashboardController
   before_action :load_shop, only: [:show, :edit, :update]
   before_action :load_params_update, only: :show
   before_action :check_user_status_for_action
+  before_action :load_domain, only: [:index, :new, :create]
+
+  def index
+    @shops = current_user.own_shops.page(params[:page])
+      .per(Settings.common.per_page).decorate
+  end
 
   def new
     @shop = current_user.own_shops.build
@@ -10,7 +16,8 @@ class Dashboard::ShopsController < BaseDashboardController
   def create
     @shop = current_user.own_shops.build shop_params
     if @shop.save
-      flash[:success] = t "flash.success.dashboard.updated_shop"
+    binding.pry
+      check_domain_to_create_shop
       redirect_to dashboard_shops_path
     else
       flash[:danger] = t "flash.danger.dashboard.updated_shop"
@@ -32,11 +39,6 @@ class Dashboard::ShopsController < BaseDashboardController
         flash.now[:danger] = t "dashboard.shops.show.update_faild"
       end
     end
-  end
-
-  def index
-    @shops = current_user.own_shops.page(params[:page])
-      .per(Settings.common.per_page).decorate
   end
 
   def edit
@@ -74,6 +76,18 @@ class Dashboard::ShopsController < BaseDashboardController
     else
       flash[:danger] = t "flash.danger.load_shop"
       redirect_to root_path
+    end
+  end
+
+  def check_domain_to_create_shop
+    if @domain.present?
+      shop_domain = ShopDomain.new shop_id: @shop.id, domain_id: @domain.id
+      binding.pry
+      if !shop_domain.save
+        flash.now[:danger] = t "dashboard.shops.show.update_faild"
+      end
+    else
+      flash[:success] = t "flash.success.dashboard.updated_shop"
     end
   end
 end
