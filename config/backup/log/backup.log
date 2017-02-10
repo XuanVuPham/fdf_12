@@ -1,0 +1,364 @@
+[2017/02/10 04:06:34][info] Performing Backup for 'Description for db_backup (fdf_12_development)'!
+[2017/02/10 04:06:34][info] [ backup 4.4.0 : ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux] ]
+[2017/02/10 04:06:34][info] Database::MySQL Started...
+[2017/02/10 04:06:34][info] Using Compressor::Gzip for compression.
+[2017/02/10 04:06:34][info]   Command: '/bin/gzip'
+[2017/02/10 04:06:34][info]   Ext: '.gz'
+[2017/02/10 04:06:34][info] Database::MySQL Finished!
+[2017/02/10 04:06:34][info] Packaging the backup files...
+[2017/02/10 04:06:34][info] Running system utility 'tar'...
+[2017/02/10 04:06:34][info] tar:STDOUT: tar (GNU tar) 1.27.1
+[2017/02/10 04:06:34][info] tar:STDOUT: Copyright (C) 2013 Free Software Foundation, Inc.
+[2017/02/10 04:06:34][info] tar:STDOUT: License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+[2017/02/10 04:06:34][info] tar:STDOUT: This is free software: you are free to change and redistribute it.
+[2017/02/10 04:06:34][info] tar:STDOUT: There is NO WARRANTY, to the extent permitted by law.
+[2017/02/10 04:06:34][info] tar:STDOUT: 
+[2017/02/10 04:06:34][info] tar:STDOUT: Written by John Gilmore and Jay Fenlason.
+[2017/02/10 04:06:34][info] Packaging Complete!
+[2017/02/10 04:06:34][info] Cleaning up the temporary files...
+[2017/02/10 04:06:34][info] Storage::Local Started...
+[2017/02/10 04:06:34][warn] Storage::Local::Error: Local File Copy Warning!
+[2017/02/10 04:06:34][warn]   The final backup file(s) for 'Description for db_backup' (fdf_12_development)
+[2017/02/10 04:06:34][warn]   will be *copied* to '/home/framgia/backups/fdf_12_development/2017.02.10.04.06.34'
+[2017/02/10 04:06:34][warn]   To avoid this, when using more than one Storage, the 'Local' Storage
+[2017/02/10 04:06:34][warn]   should be added *last* so the files may be *moved* to their destination.
+[2017/02/10 04:06:34][info] Storing '/home/framgia/backups/fdf_12_development/2017.02.10.04.06.34/fdf_12_development.tar'...
+[2017/02/10 04:06:34][info] Cycling Started...
+[2017/02/10 04:06:34][info] Storage::Local Finished!
+[2017/02/10 04:06:34][info] Storage::Dropbox Started...
+[2017/02/10 04:06:34][info] Storing 'path/to/my/backups/fdf_12_development/2017.02.10.04.06.34/fdf_12_development.tar'...
+[2017/02/10 04:06:34][info] Creating a new session!
+[2017/02/10 04:06:37][error] Model::Error: Backup for Description for db_backup (fdf_12_development) Failed!
+[2017/02/10 04:06:37][error] --- Wrapped Exception ---
+[2017/02/10 04:06:37][error] Storage::Dropbox::Error: Upload Failed!
+[2017/02/10 04:06:37][error] --- Wrapped Exception ---
+[2017/02/10 04:06:37][error] Storage::Dropbox::Error: Authorization Failed
+[2017/02/10 04:06:37][error] --- Wrapped Exception ---
+[2017/02/10 04:06:37][error] Storage::Dropbox::Error: Could not create or authenticate a new session
+[2017/02/10 04:06:37][error] --- Wrapped Exception ---
+[2017/02/10 04:06:37][error] DropboxAuthError: Couldn't get access token.  Server returned 401: Unauthorized.
+[2017/02/10 04:06:37][error] 
+[2017/02/10 04:06:37][error] Backtrace:
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/dropbox-sdk-1.6.5/lib/dropbox_sdk.rb:277:in `get_token'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/dropbox-sdk-1.6.5/lib/dropbox_sdk.rb:351:in `get_access_token'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:198:in `create_write_and_return_new_session!'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:79:in `connection'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:120:in `block (2 levels) in transfer!'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:119:in `open'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:119:in `block in transfer!'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:113:in `each'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:113:in `transfer!'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/base.rb:45:in `perform!'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:334:in `block in store!'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:332:in `map'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:332:in `store!'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:306:in `block in procedures'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:269:in `block in perform!'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:268:in `each'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:268:in `perform!'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/cli.rb:156:in `perform'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor/command.rb:27:in `run'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor/invocation.rb:120:in `invoke_command'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor.rb:363:in `dispatch'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor/base.rb:439:in `start'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/bin/backup:5:in `<top (required)>'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/backup:23:in `load'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/backup:23:in `<main>'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `eval'
+[2017/02/10 04:06:37][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `<main>'
+[2017/02/10 04:06:37][warn] Cleaner::Error: Cleanup Warning
+[2017/02/10 04:06:37][warn]   The temporary backup folder '/home/framgia/Backup/.tmp'
+[2017/02/10 04:06:37][warn]   appears to contain the backup files which were to be stored:
+[2017/02/10 04:06:37][warn]   /home/framgia/Backup/.tmp/fdf_12_development.tar
+[2017/02/10 04:06:37][warn]   
+[2017/02/10 04:06:37][warn]   Make sure you check these files before the next scheduled backup for
+[2017/02/10 04:06:37][warn]   'Description for db_backup (fdf_12_development)'
+[2017/02/10 04:06:37][warn]   These files will be removed at that time!
+[2017/02/10 04:06:37][info] Sending notification using Notifier::Mail...
+[2017/02/10 04:08:22][info] Performing Backup for 'Description for db_backup (fdf_12_development)'!
+[2017/02/10 04:08:22][info] [ backup 4.4.0 : ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux] ]
+[2017/02/10 04:08:22][warn] Cleaner::Error: Cleanup Warning
+[2017/02/10 04:08:22][warn]   The temporary backup folder '/home/framgia/Backup/.tmp'
+[2017/02/10 04:08:22][warn]   appears to contain the package files from the previous backup!
+[2017/02/10 04:08:22][warn]   /home/framgia/Backup/.tmp/fdf_12_development.tar
+[2017/02/10 04:08:22][warn]   These files will now be removed.
+[2017/02/10 04:08:22][warn]   
+[2017/02/10 04:08:22][warn]   Please check the log for messages and/or your notifications
+[2017/02/10 04:08:22][warn]   concerning this backup: 'Description for db_backup (fdf_12_development)'
+[2017/02/10 04:08:22][warn]   The temporary files which had to be removed should not have existed.
+[2017/02/10 04:08:22][info] Database::MySQL Started...
+[2017/02/10 04:08:22][info] Using Compressor::Gzip for compression.
+[2017/02/10 04:08:22][info]   Command: '/bin/gzip'
+[2017/02/10 04:08:22][info]   Ext: '.gz'
+[2017/02/10 04:08:22][info] Database::MySQL Finished!
+[2017/02/10 04:08:22][info] Packaging the backup files...
+[2017/02/10 04:08:22][info] Running system utility 'tar'...
+[2017/02/10 04:08:22][info] tar:STDOUT: tar (GNU tar) 1.27.1
+[2017/02/10 04:08:22][info] tar:STDOUT: Copyright (C) 2013 Free Software Foundation, Inc.
+[2017/02/10 04:08:22][info] tar:STDOUT: License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+[2017/02/10 04:08:22][info] tar:STDOUT: This is free software: you are free to change and redistribute it.
+[2017/02/10 04:08:22][info] tar:STDOUT: There is NO WARRANTY, to the extent permitted by law.
+[2017/02/10 04:08:22][info] tar:STDOUT: 
+[2017/02/10 04:08:22][info] tar:STDOUT: Written by John Gilmore and Jay Fenlason.
+[2017/02/10 04:08:22][info] Packaging Complete!
+[2017/02/10 04:08:22][info] Cleaning up the temporary files...
+[2017/02/10 04:08:22][info] Storage::Local Started...
+[2017/02/10 04:08:22][warn] Storage::Local::Error: Local File Copy Warning!
+[2017/02/10 04:08:22][warn]   The final backup file(s) for 'Description for db_backup' (fdf_12_development)
+[2017/02/10 04:08:22][warn]   will be *copied* to '/home/framgia/backups/fdf_12_development/2017.02.10.04.08.22'
+[2017/02/10 04:08:22][warn]   To avoid this, when using more than one Storage, the 'Local' Storage
+[2017/02/10 04:08:22][warn]   should be added *last* so the files may be *moved* to their destination.
+[2017/02/10 04:08:22][info] Storing '/home/framgia/backups/fdf_12_development/2017.02.10.04.08.22/fdf_12_development.tar'...
+[2017/02/10 04:08:22][info] Cycling Started...
+[2017/02/10 04:08:22][info] Storage::Local Finished!
+[2017/02/10 04:08:22][info] Storage::Dropbox Started...
+[2017/02/10 04:08:22][info] Storing 'path/to/my/backups/fdf_12_development/2017.02.10.04.08.22/fdf_12_development.tar'...
+[2017/02/10 04:08:22][info] Creating a new session!
+[2017/02/10 04:08:24][error] Model::Error: Backup for Description for db_backup (fdf_12_development) Failed!
+[2017/02/10 04:08:24][error] --- Wrapped Exception ---
+[2017/02/10 04:08:24][error] Storage::Dropbox::Error: Upload Failed!
+[2017/02/10 04:08:24][error] --- Wrapped Exception ---
+[2017/02/10 04:08:24][error] Storage::Dropbox::Error: Authorization Failed
+[2017/02/10 04:08:24][error] --- Wrapped Exception ---
+[2017/02/10 04:08:24][error] Storage::Dropbox::Error: Could not create or authenticate a new session
+[2017/02/10 04:08:24][error] --- Wrapped Exception ---
+[2017/02/10 04:08:24][error] DropboxAuthError: Couldn't get access token.  Server returned 401: Unauthorized.
+[2017/02/10 04:08:24][error] 
+[2017/02/10 04:08:24][error] Backtrace:
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/dropbox-sdk-1.6.5/lib/dropbox_sdk.rb:277:in `get_token'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/dropbox-sdk-1.6.5/lib/dropbox_sdk.rb:351:in `get_access_token'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:198:in `create_write_and_return_new_session!'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:79:in `connection'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:120:in `block (2 levels) in transfer!'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:119:in `open'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:119:in `block in transfer!'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:113:in `each'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:113:in `transfer!'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/base.rb:45:in `perform!'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:334:in `block in store!'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:332:in `map'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:332:in `store!'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:306:in `block in procedures'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:269:in `block in perform!'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:268:in `each'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:268:in `perform!'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/cli.rb:156:in `perform'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor/command.rb:27:in `run'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor/invocation.rb:120:in `invoke_command'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor.rb:363:in `dispatch'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor/base.rb:439:in `start'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/bin/backup:5:in `<top (required)>'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/backup:23:in `load'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/backup:23:in `<main>'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `eval'
+[2017/02/10 04:08:24][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `<main>'
+[2017/02/10 04:08:24][warn] Cleaner::Error: Cleanup Warning
+[2017/02/10 04:08:24][warn]   The temporary backup folder '/home/framgia/Backup/.tmp'
+[2017/02/10 04:08:24][warn]   appears to contain the backup files which were to be stored:
+[2017/02/10 04:08:24][warn]   /home/framgia/Backup/.tmp/fdf_12_development.tar
+[2017/02/10 04:08:24][warn]   
+[2017/02/10 04:08:24][warn]   Make sure you check these files before the next scheduled backup for
+[2017/02/10 04:08:24][warn]   'Description for db_backup (fdf_12_development)'
+[2017/02/10 04:08:24][warn]   These files will be removed at that time!
+[2017/02/10 04:08:24][info] Sending notification using Notifier::Mail...
+[2017/02/10 04:09:27][info] Performing Backup for 'Description for db_backup (fdf_12_development)'!
+[2017/02/10 04:09:27][info] [ backup 4.4.0 : ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux] ]
+[2017/02/10 04:09:27][warn] Cleaner::Error: Cleanup Warning
+[2017/02/10 04:09:27][warn]   The temporary backup folder '/home/framgia/Backup/.tmp'
+[2017/02/10 04:09:27][warn]   appears to contain the package files from the previous backup!
+[2017/02/10 04:09:27][warn]   /home/framgia/Backup/.tmp/fdf_12_development.tar
+[2017/02/10 04:09:27][warn]   These files will now be removed.
+[2017/02/10 04:09:27][warn]   
+[2017/02/10 04:09:27][warn]   Please check the log for messages and/or your notifications
+[2017/02/10 04:09:27][warn]   concerning this backup: 'Description for db_backup (fdf_12_development)'
+[2017/02/10 04:09:27][warn]   The temporary files which had to be removed should not have existed.
+[2017/02/10 04:09:27][info] Database::MySQL Started...
+[2017/02/10 04:09:27][info] Using Compressor::Gzip for compression.
+[2017/02/10 04:09:27][info]   Command: '/bin/gzip'
+[2017/02/10 04:09:27][info]   Ext: '.gz'
+[2017/02/10 04:09:27][info] Database::MySQL Finished!
+[2017/02/10 04:09:27][info] Packaging the backup files...
+[2017/02/10 04:09:27][info] Running system utility 'tar'...
+[2017/02/10 04:09:27][info] tar:STDOUT: tar (GNU tar) 1.27.1
+[2017/02/10 04:09:27][info] tar:STDOUT: Copyright (C) 2013 Free Software Foundation, Inc.
+[2017/02/10 04:09:27][info] tar:STDOUT: License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+[2017/02/10 04:09:27][info] tar:STDOUT: This is free software: you are free to change and redistribute it.
+[2017/02/10 04:09:27][info] tar:STDOUT: There is NO WARRANTY, to the extent permitted by law.
+[2017/02/10 04:09:27][info] tar:STDOUT: 
+[2017/02/10 04:09:27][info] tar:STDOUT: Written by John Gilmore and Jay Fenlason.
+[2017/02/10 04:09:27][info] Packaging Complete!
+[2017/02/10 04:09:27][info] Cleaning up the temporary files...
+[2017/02/10 04:09:27][info] Storage::Local Started...
+[2017/02/10 04:09:27][warn] Storage::Local::Error: Local File Copy Warning!
+[2017/02/10 04:09:27][warn]   The final backup file(s) for 'Description for db_backup' (fdf_12_development)
+[2017/02/10 04:09:27][warn]   will be *copied* to '/home/framgia/backups/fdf_12_development/2017.02.10.04.09.27'
+[2017/02/10 04:09:27][warn]   To avoid this, when using more than one Storage, the 'Local' Storage
+[2017/02/10 04:09:27][warn]   should be added *last* so the files may be *moved* to their destination.
+[2017/02/10 04:09:27][info] Storing '/home/framgia/backups/fdf_12_development/2017.02.10.04.09.27/fdf_12_development.tar'...
+[2017/02/10 04:09:27][info] Cycling Started...
+[2017/02/10 04:09:27][info] Storage::Local Finished!
+[2017/02/10 04:09:27][info] Storage::Dropbox Started...
+[2017/02/10 04:09:27][info] Storing 'path/to/my/backups/fdf_12_development/2017.02.10.04.09.27/fdf_12_development.tar'...
+[2017/02/10 04:09:27][info] Creating a new session!
+[2017/02/10 04:09:30][error] Model::Error: Backup for Description for db_backup (fdf_12_development) Failed!
+[2017/02/10 04:09:30][error] --- Wrapped Exception ---
+[2017/02/10 04:09:30][error] Storage::Dropbox::Error: Upload Failed!
+[2017/02/10 04:09:30][error] --- Wrapped Exception ---
+[2017/02/10 04:09:30][error] Storage::Dropbox::Error: Authorization Failed
+[2017/02/10 04:09:30][error] --- Wrapped Exception ---
+[2017/02/10 04:09:30][error] Storage::Dropbox::Error: Could not create or authenticate a new session
+[2017/02/10 04:09:30][error] --- Wrapped Exception ---
+[2017/02/10 04:09:30][error] DropboxAuthError: Couldn't get access token.  Server returned 401: Unauthorized.
+[2017/02/10 04:09:30][error] 
+[2017/02/10 04:09:30][error] Backtrace:
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/dropbox-sdk-1.6.5/lib/dropbox_sdk.rb:277:in `get_token'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/dropbox-sdk-1.6.5/lib/dropbox_sdk.rb:351:in `get_access_token'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:198:in `create_write_and_return_new_session!'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:79:in `connection'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:120:in `block (2 levels) in transfer!'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:119:in `open'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:119:in `block in transfer!'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:113:in `each'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/dropbox.rb:113:in `transfer!'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/storage/base.rb:45:in `perform!'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:334:in `block in store!'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:332:in `map'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:332:in `store!'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:306:in `block in procedures'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:269:in `block in perform!'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:268:in `each'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/model.rb:268:in `perform!'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/lib/backup/cli.rb:156:in `perform'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor/command.rb:27:in `run'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor/invocation.rb:120:in `invoke_command'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor.rb:363:in `dispatch'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/thor-0.18.1/lib/thor/base.rb:439:in `start'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/gems/backup-4.4.0/bin/backup:5:in `<top (required)>'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/backup:23:in `load'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/backup:23:in `<main>'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `eval'
+[2017/02/10 04:09:30][error]   /home/framgia/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `<main>'
+[2017/02/10 04:09:30][warn] Cleaner::Error: Cleanup Warning
+[2017/02/10 04:09:30][warn]   The temporary backup folder '/home/framgia/Backup/.tmp'
+[2017/02/10 04:09:30][warn]   appears to contain the backup files which were to be stored:
+[2017/02/10 04:09:30][warn]   /home/framgia/Backup/.tmp/fdf_12_development.tar
+[2017/02/10 04:09:30][warn]   
+[2017/02/10 04:09:30][warn]   Make sure you check these files before the next scheduled backup for
+[2017/02/10 04:09:30][warn]   'Description for db_backup (fdf_12_development)'
+[2017/02/10 04:09:30][warn]   These files will be removed at that time!
+[2017/02/10 04:09:30][info] Sending notification using Notifier::Mail...
+[2017/02/10 04:09:50][info] Performing Backup for 'Description for db_backup (fdf_12_development)'!
+[2017/02/10 04:09:50][info] [ backup 4.4.0 : ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux] ]
+[2017/02/10 04:09:50][warn] Cleaner::Error: Cleanup Warning
+[2017/02/10 04:09:50][warn]   The temporary backup folder '/home/framgia/Backup/.tmp'
+[2017/02/10 04:09:50][warn]   appears to contain the package files from the previous backup!
+[2017/02/10 04:09:50][warn]   /home/framgia/Backup/.tmp/fdf_12_development.tar
+[2017/02/10 04:09:50][warn]   These files will now be removed.
+[2017/02/10 04:09:50][warn]   
+[2017/02/10 04:09:50][warn]   Please check the log for messages and/or your notifications
+[2017/02/10 04:09:50][warn]   concerning this backup: 'Description for db_backup (fdf_12_development)'
+[2017/02/10 04:09:50][warn]   The temporary files which had to be removed should not have existed.
+[2017/02/10 04:09:50][info] Database::MySQL Started...
+[2017/02/10 04:09:50][info] Using Compressor::Gzip for compression.
+[2017/02/10 04:09:50][info]   Command: '/bin/gzip'
+[2017/02/10 04:09:50][info]   Ext: '.gz'
+[2017/02/10 04:09:50][info] Database::MySQL Finished!
+[2017/02/10 04:09:50][info] Packaging the backup files...
+[2017/02/10 04:09:50][info] Running system utility 'tar'...
+[2017/02/10 04:09:50][info] tar:STDOUT: tar (GNU tar) 1.27.1
+[2017/02/10 04:09:50][info] tar:STDOUT: Copyright (C) 2013 Free Software Foundation, Inc.
+[2017/02/10 04:09:50][info] tar:STDOUT: License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+[2017/02/10 04:09:50][info] tar:STDOUT: This is free software: you are free to change and redistribute it.
+[2017/02/10 04:09:50][info] tar:STDOUT: There is NO WARRANTY, to the extent permitted by law.
+[2017/02/10 04:09:50][info] tar:STDOUT: 
+[2017/02/10 04:09:50][info] tar:STDOUT: Written by John Gilmore and Jay Fenlason.
+[2017/02/10 04:09:50][info] Packaging Complete!
+[2017/02/10 04:09:50][info] Cleaning up the temporary files...
+[2017/02/10 04:09:50][info] Storage::Local Started...
+[2017/02/10 04:09:50][warn] Storage::Local::Error: Local File Copy Warning!
+[2017/02/10 04:09:50][warn]   The final backup file(s) for 'Description for db_backup' (fdf_12_development)
+[2017/02/10 04:09:50][warn]   will be *copied* to '/home/framgia/backups/fdf_12_development/2017.02.10.04.09.50'
+[2017/02/10 04:09:50][warn]   To avoid this, when using more than one Storage, the 'Local' Storage
+[2017/02/10 04:09:50][warn]   should be added *last* so the files may be *moved* to their destination.
+[2017/02/10 04:09:50][info] Storing '/home/framgia/backups/fdf_12_development/2017.02.10.04.09.50/fdf_12_development.tar'...
+[2017/02/10 04:09:50][info] Cycling Started...
+[2017/02/10 04:09:50][info] Storage::Local Finished!
+[2017/02/10 04:09:50][info] Storage::Dropbox Started...
+[2017/02/10 04:09:50][info] Storing 'path/to/my/backups/fdf_12_development/2017.02.10.04.09.50/fdf_12_development.tar'...
+[2017/02/10 04:09:50][info] Creating a new session!
+[2017/02/10 04:10:02][info] Cycling Started...
+[2017/02/10 04:10:02][info] Storage::Dropbox Finished!
+[2017/02/10 04:10:02][info] Cleaning up the package files...
+[2017/02/10 04:10:02][warn] Backup for 'Description for db_backup (fdf_12_development)' Completed Successfully (with Warnings) in 00:00:12
+[2017/02/10 04:10:02][info] Sending notification using Notifier::Mail...
+[2017/02/10 04:16:44][info] Performing Backup for 'Description for db_backup (fdf_12_development)'!
+[2017/02/10 04:16:44][info] [ backup 4.4.0 : ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux] ]
+[2017/02/10 04:16:44][info] Database::MySQL Started...
+[2017/02/10 04:16:44][info] Using Compressor::Gzip for compression.
+[2017/02/10 04:16:44][info]   Command: '/bin/gzip'
+[2017/02/10 04:16:44][info]   Ext: '.gz'
+[2017/02/10 04:16:44][info] Database::MySQL Finished!
+[2017/02/10 04:16:44][info] Packaging the backup files...
+[2017/02/10 04:16:44][info] Running system utility 'tar'...
+[2017/02/10 04:16:44][info] tar:STDOUT: tar (GNU tar) 1.27.1
+[2017/02/10 04:16:44][info] tar:STDOUT: Copyright (C) 2013 Free Software Foundation, Inc.
+[2017/02/10 04:16:44][info] tar:STDOUT: License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+[2017/02/10 04:16:44][info] tar:STDOUT: This is free software: you are free to change and redistribute it.
+[2017/02/10 04:16:44][info] tar:STDOUT: There is NO WARRANTY, to the extent permitted by law.
+[2017/02/10 04:16:44][info] tar:STDOUT: 
+[2017/02/10 04:16:44][info] tar:STDOUT: Written by John Gilmore and Jay Fenlason.
+[2017/02/10 04:16:44][info] Packaging Complete!
+[2017/02/10 04:16:44][info] Cleaning up the temporary files...
+[2017/02/10 04:16:44][info] Storage::Local Started...
+[2017/02/10 04:16:44][warn] Storage::Local::Error: Local File Copy Warning!
+[2017/02/10 04:16:44][warn]   The final backup file(s) for 'Description for db_backup' (fdf_12_development)
+[2017/02/10 04:16:44][warn]   will be *copied* to '/home/framgia/backups/fdf_12_development/2017.02.10.04.16.44'
+[2017/02/10 04:16:44][warn]   To avoid this, when using more than one Storage, the 'Local' Storage
+[2017/02/10 04:16:44][warn]   should be added *last* so the files may be *moved* to their destination.
+[2017/02/10 04:16:44][info] Storing '/home/framgia/backups/fdf_12_development/2017.02.10.04.16.44/fdf_12_development.tar'...
+[2017/02/10 04:16:44][info] Cycling Started...
+[2017/02/10 04:16:44][info] Storage::Local Finished!
+[2017/02/10 04:16:44][info] Storage::Dropbox Started...
+[2017/02/10 04:16:44][info] Storing 'path/to/my/backups/fdf_12_development/2017.02.10.04.16.44/fdf_12_development.tar'...
+[2017/02/10 04:16:44][info] Session data loaded from cache!
+[2017/02/10 04:16:46][info] Cycling Started...
+[2017/02/10 04:16:46][info] Storage::Dropbox Finished!
+[2017/02/10 04:16:46][info] Cleaning up the package files...
+[2017/02/10 04:16:46][warn] Backup for 'Description for db_backup (fdf_12_development)' Completed Successfully (with Warnings) in 00:00:02
+[2017/02/10 04:16:46][info] Sending notification using Notifier::Mail...
+[2017/02/10 04:19:02][info] Performing Backup for 'Description for db_backup (fdf_12_development)'!
+[2017/02/10 04:19:02][info] [ backup 4.4.0 : ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux] ]
+[2017/02/10 04:19:02][info] Database::MySQL Started...
+[2017/02/10 04:19:02][info] Using Compressor::Gzip for compression.
+[2017/02/10 04:19:02][info]   Command: '/bin/gzip'
+[2017/02/10 04:19:02][info]   Ext: '.gz'
+[2017/02/10 04:19:02][info] Database::MySQL Finished!
+[2017/02/10 04:19:02][info] Packaging the backup files...
+[2017/02/10 04:19:02][info] Running system utility 'tar'...
+[2017/02/10 04:19:02][info] tar:STDOUT: tar (GNU tar) 1.27.1
+[2017/02/10 04:19:02][info] tar:STDOUT: Copyright (C) 2013 Free Software Foundation, Inc.
+[2017/02/10 04:19:02][info] tar:STDOUT: License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+[2017/02/10 04:19:02][info] tar:STDOUT: This is free software: you are free to change and redistribute it.
+[2017/02/10 04:19:02][info] tar:STDOUT: There is NO WARRANTY, to the extent permitted by law.
+[2017/02/10 04:19:02][info] tar:STDOUT: 
+[2017/02/10 04:19:02][info] tar:STDOUT: Written by John Gilmore and Jay Fenlason.
+[2017/02/10 04:19:02][info] Packaging Complete!
+[2017/02/10 04:19:02][info] Cleaning up the temporary files...
+[2017/02/10 04:19:02][info] Storage::Local Started...
+[2017/02/10 04:19:02][warn] Storage::Local::Error: Local File Copy Warning!
+[2017/02/10 04:19:02][warn]   The final backup file(s) for 'Description for db_backup' (fdf_12_development)
+[2017/02/10 04:19:02][warn]   will be *copied* to '/home/framgia/backups/fdf_12_development/2017.02.10.04.19.02'
+[2017/02/10 04:19:02][warn]   To avoid this, when using more than one Storage, the 'Local' Storage
+[2017/02/10 04:19:02][warn]   should be added *last* so the files may be *moved* to their destination.
+[2017/02/10 04:19:02][info] Storing '/home/framgia/backups/fdf_12_development/2017.02.10.04.19.02/fdf_12_development.tar'...
+[2017/02/10 04:19:02][info] Cycling Started...
+[2017/02/10 04:19:02][info] Removing backup package dated 2017.02.10.04.06.34...
+[2017/02/10 04:19:02][info] Storage::Local Finished!
+[2017/02/10 04:19:02][info] Storage::Dropbox Started...
+[2017/02/10 04:19:02][info] Storing 'path/to/my/backups/fdf_12_development/2017.02.10.04.19.02/fdf_12_development.tar'...
+[2017/02/10 04:19:02][info] Session data loaded from cache!
+[2017/02/10 04:19:04][info] Cycling Started...
+[2017/02/10 04:19:04][info] Storage::Dropbox Finished!
+[2017/02/10 04:19:04][info] Cleaning up the package files...
+[2017/02/10 04:19:04][warn] Backup for 'Description for db_backup (fdf_12_development)' Completed Successfully (with Warnings) in 00:00:02
+[2017/02/10 04:19:04][info] Sending notification using Notifier::Mail...
